@@ -103,7 +103,7 @@ export default function Experience() {
                 >
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="group relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-6 backdrop-blur-sm transition-all hover:border-slate-700 md:p-8"
+                    className="group relative overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)] p-6 backdrop-blur-sm transition-all hover:border-slate-700 md:p-8"
                   >
                     {/* Freelance badge */}
                     {exp.type === "freelance" && (
@@ -143,7 +143,7 @@ export default function Experience() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-24 rounded-2xl border border-slate-800 bg-slate-900/30 p-8 backdrop-blur-sm md:p-12"
+          className="mt-24 rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)]/60 p-8 backdrop-blur-sm md:p-12"
         >
           <h3 className="mb-8 text-2xl font-bold text-white md:text-3xl">
             Core Skills
@@ -172,7 +172,7 @@ export default function Experience() {
                     : { opacity: 0, scale: 0.9 }
                 }
                 transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
-                className="rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:border-slate-500/50 hover:text-white"
+                className="rounded-xl border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:border-slate-500/50 hover:text-white"
               >
                 {skill}
               </motion.div>

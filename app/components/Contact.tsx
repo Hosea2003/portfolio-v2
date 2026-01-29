@@ -139,7 +139,7 @@ export default function Contact() {
           >
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm"
+              className="relative overflow-hidden rounded-2xl border border-[#2a2a2a] p-8 backdrop-blur-sm"
             >
               <div className="space-y-6">
                 {/* Name field */}
@@ -154,7 +154,7 @@ export default function Contact() {
                     {...register("name", { required: "Name is required" })}
                     type="text"
                     id="name"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-(--color-card-alt) px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -182,7 +182,7 @@ export default function Contact() {
                     })}
                     type="email"
                     id="email"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -206,7 +206,7 @@ export default function Contact() {
                     })}
                     type="text"
                     id="subject"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Project inquiry"
                   />
                   {errors.subject && (
@@ -230,7 +230,7 @@ export default function Contact() {
                     })}
                     id="message"
                     rows={6}
-                    className="w-full resize-none rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full resize-none rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (

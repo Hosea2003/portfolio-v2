@@ -18,7 +18,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-slate-400/30 bg-slate-800/50 backdrop-blur-sm">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-slate-400/30 bg-[var(--color-card-alt)] backdrop-blur-sm">
             <span className="text-2xl font-bold text-slate-300">RH</span>
           </div>
         </motion.div>
@@ -108,7 +108,7 @@ export default function Hero() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="inline-flex flex-col justify-center rounded-lg border border-slate-700 bg-slate-800/50 px-8 py-6 backdrop-blur-sm min-w-[280px]"
+                  className="inline-flex flex-col justify-center rounded-lg border border-[#2a2a2a] bg-[var(--color-card)] px-8 py-6 backdrop-blur-sm min-w-[280px]"
                 >
                   <span className="text-base font-semibold text-white mb-1">
                     {service.title}

@@ -117,10 +117,10 @@ export default function Projects() {
             >
               <button
                 onClick={() => setSelectedProject(project)}
-                className="relative block w-full overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm transition-all hover:border-slate-700"
+                className="relative block w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)] backdrop-blur-sm transition-all hover:border-slate-700"
               >
                 {/* Project card content */}
-                <div className="aspect-4/3 w-full overflow-hidden bg-linear-to-br from-slate-800 to-slate-900">
+                <div className="aspect-4/3 w-full overflow-hidden bg-linear-to-br from-[var(--color-card-alt)] to-[var(--color-card)]">
                   {/* Placeholder gradient background */}
                   <div
                     className={`h-full w-full bg-linear-to-br ${project.gradient} opacity-40 transition-opacity group-hover:opacity-60`}
@@ -184,12 +184,12 @@ export default function Projects() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25 }}
-            className="relative max-w-4xl overflow-hidden rounded-3xl border border-slate-700 bg-slate-900"
+            className="relative max-w-4xl overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[var(--color-card)]"
             onClick={e => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-slate-800/80 text-white backdrop-blur-sm transition-colors hover:bg-slate-700"
+              className="absolute right-6 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-card-alt)]/80 text-white backdrop-blur-sm transition-colors hover:bg-[#2a2a2a]"
             >
               <svg
                 className="h-6 w-6"
@@ -222,7 +222,7 @@ export default function Projects() {
                 {selectedProject.tags.map(tag => (
                   <span
                     key={tag}
-                    className="rounded-full border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm text-slate-300"
+                    className="rounded-full border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-2 text-sm text-slate-300"
                   >
                     {tag}
                   </span>
