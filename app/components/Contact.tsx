@@ -56,9 +56,9 @@ export default function Contact() {
               Together
             </h2>
             <p className="mb-8 text-lg text-slate-400">
-              I&apos;m currently available for freelance projects. Whether you
-              have a question or just want to say hi, I&apos;ll try my best to
-              get back to you!
+              I&apos;m currently available for new projects. Whether you have a
+              question or just want to say hi, I&apos;ll try my best to get back
+              to you!
             </p>
 
             {/* Availability badge */}
@@ -73,7 +73,7 @@ export default function Contact() {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-slate-200"></span>
               </div>
               <span className="font-medium text-slate-200">
-                Available for Freelance Work
+                Open to Collaborations
               </span>
             </motion.div>
 

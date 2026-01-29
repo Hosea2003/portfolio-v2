@@ -130,9 +130,7 @@ export default function Hero() {
             href="#contact"
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-slate-600/50 bg-linear-to-br from-slate-200 via-slate-100 to-slate-300 px-8 py-4 text-sm font-medium text-slate-900 shadow-lg shadow-slate-900/50 transition-all hover:border-slate-400 hover:shadow-xl hover:shadow-slate-700/50"
           >
-            <span className="relative z-10 font-semibold">
-              Available for Freelance
-            </span>
+            <span className="relative z-10 font-semibold">Hire me</span>
             <svg
               className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1"
               fill="none"
