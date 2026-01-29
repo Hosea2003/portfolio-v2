@@ -5,3 +5,4 @@ build
 coverage
 .husky/_
 pnpm-lock.yaml
+*.css
