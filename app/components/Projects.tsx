@@ -21,7 +21,7 @@ const projects: Project[] = [
     image: "/projects/studio-74.jpg",
     description: "A modern creative studio website with immersive animations",
     tags: ["Next.js", "Framer Motion", "TypeScript"],
-    gradient: "from-blue-600/20 to-purple-600/20",
+    gradient: "from-slate-600/20 to-slate-500/20",
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const projects: Project[] = [
     image: "/projects/gloster.jpg",
     description: "Full-stack e-commerce platform with real-time inventory",
     tags: ["React", "Node.js", "MongoDB"],
-    gradient: "from-purple-600/20 to-pink-600/20",
+    gradient: "from-slate-500/20 to-slate-600/20",
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const projects: Project[] = [
     image: "/projects/linea.jpg",
     description: "Complete brand identity and design system",
     tags: ["Figma", "Design System", "Branding"],
-    gradient: "from-cyan-600/20 to-blue-600/20",
+    gradient: "from-slate-700/20 to-slate-500/20",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const projects: Project[] = [
     image: "/projects/cube.jpg",
     description: "Interactive 3D product configurator",
     tags: ["Three.js", "React", "WebGL"],
-    gradient: "from-orange-600/20 to-red-600/20",
+    gradient: "from-slate-600/20 to-slate-700/20",
   },
 ];
 

@@ -63,13 +63,13 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-12 inline-flex items-center gap-3 rounded-2xl border border-green-500/30 bg-green-500/10 px-6 py-4 backdrop-blur-sm"
+              className="mb-12 inline-flex items-center gap-3 rounded-2xl border-2 border-slate-500/40 bg-linear-to-r from-slate-800/80 to-slate-700/80 px-6 py-4 shadow-lg shadow-slate-900/50 backdrop-blur-sm"
             >
               <div className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-300 opacity-75"></span>
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-slate-200"></span>
               </div>
-              <span className="font-medium text-green-400">
+              <span className="font-medium text-slate-200">
                 Available for Freelance Work
               </span>
             </motion.div>
@@ -87,7 +87,7 @@ export default function Contact() {
                 </h3>
                 <a
                   href="mailto:your@email.com"
-                  className="text-xl text-white transition-colors hover:text-purple-400"
+                  className="text-xl text-white transition-colors hover:text-slate-300"
                 >
                   your@email.com
                 </a>
@@ -139,7 +139,7 @@ export default function Contact() {
                     {...register("name", { required: "Name is required" })}
                     type="text"
                     id="name"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
+                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -167,7 +167,7 @@ export default function Contact() {
                     })}
                     type="email"
                     id="email"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
+                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -191,7 +191,7 @@ export default function Contact() {
                     })}
                     type="text"
                     id="subject"
-                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
+                    className="w-full rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Project inquiry"
                   />
                   {errors.subject && (
@@ -215,7 +215,7 @@ export default function Contact() {
                     })}
                     id="message"
                     rows={6}
-                    className="w-full resize-none rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
+                    className="w-full resize-none rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (
@@ -230,12 +230,12 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="group relative w-full overflow-hidden rounded-lg bg-linear-to-r from-purple-600 to-pink-600 px-8 py-4 font-medium text-white transition-all hover:shadow-lg hover:shadow-purple-500/50"
+                  className="group relative w-full overflow-hidden rounded-lg bg-linear-to-br from-slate-200 via-slate-100 to-slate-300 px-8 py-4 font-semibold text-slate-900 shadow-lg shadow-slate-900/50 transition-all hover:shadow-xl hover:shadow-slate-700/50"
                 >
                   <span className="relative z-10">
                     {isSubmitted ? "Message Sent!" : "Send Message"}
                   </span>
-                  <div className="absolute inset-0 -z-10 bg-linear-to-r from-purple-700 to-pink-700 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute inset-0 -z-10 bg-linear-to-br from-slate-100 via-white to-slate-200 opacity-0 transition-opacity group-hover:opacity-100" />
                 </motion.button>
               </div>
 
@@ -244,7 +244,7 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 rounded-lg bg-green-500/10 p-4 text-center text-green-400"
+                  className="mt-4 rounded-lg bg-slate-700/30 p-4 text-center text-slate-300"
                 >
                   Thank you! I&apos;ll get back to you soon.
                 </motion.div>

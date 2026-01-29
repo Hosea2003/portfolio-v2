@@ -79,7 +79,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-linear-to-b from-purple-500/50 via-pink-500/50 to-transparent md:block md:left-1/2" />
+          <div className="absolute left-0 top-0 hidden h-full w-px bg-linear-to-b from-slate-500/50 via-slate-400/50 to-transparent md:block md:left-1/2" />
 
           <div className="space-y-12 md:space-y-24">
             {experiences.map((exp, index) => (
@@ -97,8 +97,8 @@ export default function Experience() {
                 } items-start gap-8`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-purple-500 bg-[#0a0a0f] md:block md:left-1/2">
-                  <div className="absolute inset-0 animate-ping rounded-full bg-purple-500 opacity-20" />
+                <div className="absolute left-0 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-slate-400 bg-[#0a0a0f] md:block md:left-1/2">
+                  <div className="absolute inset-0 animate-ping rounded-full bg-slate-400 opacity-20" />
                 </div>
 
                 {/* Content */}
@@ -113,15 +113,15 @@ export default function Experience() {
                   >
                     {/* Freelance badge */}
                     {exp.type === "freelance" && (
-                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1">
-                        <div className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-                        <span className="text-xs font-medium uppercase tracking-wider text-green-400">
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-slate-500/40 bg-linear-to-r from-slate-800/80 to-slate-700/80 px-3 py-1 shadow-lg shadow-slate-900/50">
+                        <div className="h-2 w-2 animate-pulse rounded-full bg-slate-200" />
+                        <span className="text-xs font-medium uppercase tracking-wider text-slate-200">
                           Currently Freelancing
                         </span>
                       </div>
                     )}
 
-                    <div className="mb-3 text-sm font-medium uppercase tracking-wider text-purple-400">
+                    <div className="mb-3 text-sm font-medium uppercase tracking-wider text-slate-400">
                       {exp.year}
                     </div>
                     <h3 className="mb-2 text-2xl font-bold text-white">
@@ -133,7 +133,7 @@ export default function Experience() {
                     <p className="text-slate-400">{exp.description}</p>
 
                     {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 -z-10 bg-linear-to-br from-purple-600/10 to-pink-600/10 opacity-0 transition-opacity group-hover:opacity-100" />
+                    <div className="absolute inset-0 -z-10 bg-linear-to-br from-slate-600/10 to-slate-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
                   </motion.div>
                 </div>
 
@@ -174,7 +174,7 @@ export default function Experience() {
                     : { opacity: 0, scale: 0.9 }
                 }
                 transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
-                className="rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:border-purple-500/50 hover:text-white"
+                className="rounded-xl border border-slate-800 bg-slate-900/50 px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:border-slate-500/50 hover:text-white"
               >
                 {skill}
               </motion.div>

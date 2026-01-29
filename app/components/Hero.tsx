@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-6">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-purple-600/20 via-pink-500/20 to-orange-400/20 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-slate-600/15 via-slate-500/10 to-slate-700/15 blur-3xl" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center">
@@ -79,9 +79,11 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-slate-600 bg-slate-800/50 px-8 py-4 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-slate-500 hover:bg-slate-700/50"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-slate-600/50 bg-linear-to-br from-slate-200 via-slate-100 to-slate-300 px-8 py-4 text-sm font-medium text-slate-900 shadow-lg shadow-slate-900/50 transition-all hover:border-slate-400 hover:shadow-xl hover:shadow-slate-700/50"
           >
-            <span className="relative z-10">Available for Freelance</span>
+            <span className="relative z-10 font-semibold">
+              Available for Freelance
+            </span>
             <svg
               className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1"
               fill="none"
@@ -95,7 +97,7 @@ export default function Hero() {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-            <div className="absolute inset-0 -z-10 bg-linear-to-r from-purple-600/20 to-pink-600/20 opacity-0 transition-opacity group-hover:opacity-100" />
+            <div className="absolute inset-0 -z-10 bg-linear-to-r from-slate-100 to-slate-200 opacity-0 transition-opacity group-hover:opacity-100" />
           </a>
         </motion.div>
 
