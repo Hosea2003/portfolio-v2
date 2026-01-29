@@ -94,7 +94,10 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="mb-16 md:mb-24"
         >
-          <h2 className="mb-4 font-serif text-5xl font-bold tracking-tight text-white md:text-7xl">
+          <h2
+            className="mb-4 text-5xl font-bold tracking-tight text-white md:text-7xl"
+            style={{ fontFamily: "var(--font-bricolage)" }}
+          >
             Selected Work
           </h2>
           <p className="text-lg text-slate-400">

@@ -47,7 +47,10 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="mb-6 font-serif text-5xl font-bold tracking-tight text-white md:text-7xl">
+            <h2
+              className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl"
+              style={{ fontFamily: "var(--font-bricolage)" }}
+            >
               Let&apos;s Work
               <br />
               Together

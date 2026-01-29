@@ -35,7 +35,8 @@ export default function Hero() {
 
         {/* Main name with stagger animation */}
         <motion.h1
-          className="mb-6 font-serif text-6xl font-bold tracking-tight text-white md:text-8xl lg:text-9xl"
+          className="mb-6 text-6xl font-bold tracking-tight text-white md:text-8xl lg:text-9xl"
+          style={{ fontFamily: "var(--font-bricolage)" }}
           initial="hidden"
           animate="visible"
         >
