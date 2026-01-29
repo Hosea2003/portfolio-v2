@@ -72,6 +72,54 @@ export default function Hero() {
           React • Next.js • React Native
         </motion.div>
 
+        {/* Services Carousel */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="mb-12 overflow-hidden w-full max-w-4xl"
+        >
+          <div className="relative h-32 flex items-center">
+            <motion.div
+              animate={{
+                x: [0, -1600],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 50,
+                  ease: "linear",
+                },
+              }}
+              className="flex gap-4 whitespace-nowrap"
+            >
+              {[
+                { title: "Backend Development", tech: "NestJS • Django" },
+                { title: "Frontend Development", tech: "React • Next.js" },
+                { title: "Mobile Development", tech: "React Native" },
+                { title: "API Design", tech: "REST • GraphQL" },
+                { title: "Full Stack Solutions", tech: "End-to-End" },
+                { title: "Backend Development", tech: "NestJS • Django" },
+                { title: "Frontend Development", tech: "React • Next.js" },
+                { title: "Mobile Development", tech: "React Native" },
+                { title: "API Design", tech: "REST • GraphQL" },
+                { title: "Full Stack Solutions", tech: "End-to-End" },
+              ].map((service, index) => (
+                <div
+                  key={index}
+                  className="inline-flex flex-col justify-center rounded-lg border border-slate-700 bg-slate-800/50 px-8 py-6 backdrop-blur-sm min-w-[280px]"
+                >
+                  <span className="text-base font-semibold text-white mb-1">
+                    {service.title}
+                  </span>
+                  <span className="text-sm text-slate-400">{service.tech}</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </motion.div>
+
         {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
