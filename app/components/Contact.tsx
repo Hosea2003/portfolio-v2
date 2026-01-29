@@ -86,10 +86,22 @@ export default function Contact() {
                   Email
                 </h3>
                 <a
-                  href="mailto:your@email.com"
+                  href="mailto:mahefaniairindra@gmail.com"
                   className="text-xl text-white transition-colors hover:text-slate-300"
                 >
-                  your@email.com
+                  mahefaniairindra@gmail.com
+                </a>
+              </div>
+
+              <div>
+                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-slate-500">
+                  Phone
+                </h3>
+                <a
+                  href="tel:+26838062851"
+                  className="text-xl text-white transition-colors hover:text-slate-300"
+                >
+                  +268 38 06 285 61
                 </a>
               </div>
 

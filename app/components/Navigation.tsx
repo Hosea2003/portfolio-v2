@@ -35,7 +35,7 @@ export default function Navigation() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-800/50">
-            <span className="text-sm font-bold text-slate-300">RS</span>
+            <span className="text-sm font-bold text-slate-300">RH</span>
           </div>
         </a>
 

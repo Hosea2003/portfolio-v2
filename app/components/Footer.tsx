@@ -12,10 +12,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-800/50">
-              <span className="text-lg font-bold text-slate-300">RS</span>
+              <span className="text-lg font-bold text-slate-300">RH</span>
             </div>
             <p className="text-sm text-slate-400">
-              Full Stack Developer specializing in modern web experiences.
+              Full Stack Developer specializing in React, Next.js, and React
+              Native applications.
             </p>
           </div>
 

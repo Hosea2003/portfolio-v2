@@ -19,7 +19,7 @@ export default function Hero() {
           className="mb-8"
         >
           <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-slate-400/30 bg-slate-800/50 backdrop-blur-sm">
-            <span className="text-2xl font-bold text-slate-300">RS</span>
+            <span className="text-2xl font-bold text-slate-300">RH</span>
           </div>
         </motion.div>
 
@@ -47,7 +47,7 @@ export default function Hero() {
             }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            YOUR
+            RINDRA
           </motion.span>{" "}
           <motion.span
             className="inline-block"
@@ -57,7 +57,7 @@ export default function Hero() {
             }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            NAME
+            HOSEA
           </motion.span>
         </motion.h1>
 
@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-12 text-sm font-medium uppercase tracking-[0.3em] text-slate-400"
         >
-          Creative Development
+          React • Next.js • React Native
         </motion.div>
 
         {/* CTA Button */}

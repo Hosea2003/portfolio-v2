@@ -15,38 +15,29 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    year: "2024 - Present",
+    year: "Aug 2024 - Present",
     role: "Freelance Full Stack Developer",
     company: "Independent",
     description:
-      "Building custom web applications and digital experiences for clients worldwide. Specializing in React, Next.js, and modern web technologies.",
+      "Development of new features for mobile and web applications with React Native and Next.js. Created Rico (marketplace app), WeGroupAPI (monitoring dashboard), EasyVecto (logo transformation app), and We Paint Well (painting services platform).",
     type: "freelance",
   },
   {
     id: 2,
-    year: "2022 - 2024",
-    role: "Senior Frontend Developer",
-    company: "Tech Company",
+    year: "Feb 2024 - Aug 2024",
+    role: "Full Stack Developer",
+    company: "Praktek",
     description:
-      "Led frontend development for enterprise applications, mentored junior developers, and established design system standards.",
+      "Development of web and mobile applications using React ecosystem. Focused on writing unit tests and ensuring code quality across projects.",
     type: "employment",
   },
   {
     id: 3,
-    year: "2020 - 2022",
-    role: "Full Stack Developer",
-    company: "Digital Agency",
+    year: "Sep 2023 - Dec 2023",
+    role: "Developer Intern",
+    company: "Futurmap",
     description:
-      "Developed and maintained multiple client projects using React, Node.js, and cloud services.",
-    type: "employment",
-  },
-  {
-    id: 4,
-    year: "2019 - 2020",
-    role: "Junior Developer",
-    company: "Startup",
-    description:
-      "Started career building features for a SaaS platform and learning modern development practices.",
+      "Integrated project management functionalities in the company's ERP system using Django and Angular. Gained experience in enterprise software development.",
     type: "employment",
   },
 ];
@@ -157,13 +148,17 @@ export default function Experience() {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
             {[
               "React & Next.js",
+              "React Native",
+              "Node.js & NestJs",
               "TypeScript",
-              "Node.js",
-              "Tailwind CSS",
-              "Framer Motion",
-              "PostgreSQL",
-              "AWS & Vercel",
-              "UI/UX Design",
+              "TypeORM",
+              "React Query",
+              "Git/GitHub",
+              "Firebase & Supabase",
+              "Docker",
+              "Django & Angular",
+              "ShadCn UI",
+              "Mobile Development",
             ].map((skill, index) => (
               <motion.div
                 key={skill}
