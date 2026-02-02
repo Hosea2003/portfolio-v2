@@ -117,7 +117,7 @@ export default function Projects() {
             >
               <button
                 onClick={() => setSelectedProject(project)}
-                className="relative block w-full overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)] backdrop-blur-sm transition-all hover:border-slate-700"
+                className="relative block w-full overflow-hidden rounded-2xl border border-primary/20 bg-[var(--color-card)] backdrop-blur-sm transition-all hover:border-primary/40"
               >
                 {/* Project card content */}
                 <div className="aspect-4/3 w-full overflow-hidden bg-linear-to-br from-[var(--color-card-alt)] to-[var(--color-card)]">
@@ -184,7 +184,7 @@ export default function Projects() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25 }}
-            className="relative max-w-4xl overflow-hidden rounded-3xl border border-[#2a2a2a] bg-[var(--color-card)]"
+            className="relative max-w-4xl overflow-hidden rounded-3xl border border-primary/20 bg-[var(--color-card)]"
             onClick={e => e.stopPropagation()}
           >
             <button
