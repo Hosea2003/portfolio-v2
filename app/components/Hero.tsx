@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-6">
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-4 sm:px-6 md:px-8">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(204,251,6,0.2)_0%,_rgba(204,251,6,0.1)_50%,_rgba(204,251,6,0.2)_100%)] blur-3xl" />
         <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(204,251,6,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(204,251,6,0.18)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(circle_at_center,black_0%,black_45%,transparent_70%)]" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center w-full max-w-7xl px-2 sm:px-4">
         {/* Logo or initial - animated */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ export default function Hero() {
 
         {/* Main name with stagger animation */}
         <motion.h1
-          className="mb-6 text-6xl font-bold tracking-tight text-white md:text-8xl lg:text-9xl"
+          className="mb-6 text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-8xl lg:text-9xl"
           style={{ fontFamily: "var(--font-bricolage)" }}
           initial="hidden"
           animate="visible"
@@ -78,7 +78,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mb-12 overflow-hidden w-full max-w-4xl"
+          className="mb-12 overflow-hidden w-full max-w-4xl -mx-4 sm:mx-0"
         >
           <div className="relative h-32 flex items-center">
             <motion.div
@@ -109,12 +109,14 @@ export default function Hero() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="inline-flex flex-col justify-center rounded-lg border border-primary/20 bg-(--color-card) px-8 py-6 backdrop-blur-sm min-w-70"
+                  className="inline-flex flex-col justify-center rounded-lg border border-primary/20 bg-(--color-card) px-6 py-5 backdrop-blur-sm min-w-60 sm:min-w-70 sm:px-8 sm:py-6"
                 >
-                  <span className="text-base font-semibold text-white mb-1">
+                  <span className="text-sm font-semibold text-white mb-1 sm:text-base">
                     {service.title}
                   </span>
-                  <span className="text-sm text-slate-400">{service.tech}</span>
+                  <span className="text-xs text-slate-400 sm:text-sm">
+                    {service.tech}
+                  </span>
                 </div>
               ))}
             </motion.div>

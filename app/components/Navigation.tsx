@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +17,6 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "About", href: "#" },
     { name: "Work", href: "#work" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
@@ -53,22 +53,60 @@ export default function Navigation() {
         </div>
 
         {/* Mobile menu button */}
-        <button className="md:hidden">
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          onBlur={() => setTimeout(() => setIsMobileMenuOpen(false), 150)}
+          aria-label="Toggle menu"
+        >
           <svg
             className="h-6 w-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            {isMobileMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
           </svg>
         </button>
       </div>
+
+      {/* Mobile menu panel */}
+      <motion.div
+        initial={false}
+        animate={{
+          height: isMobileMenuOpen ? "auto" : 0,
+          opacity: isMobileMenuOpen ? 1 : 0,
+        }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden md:hidden bg-[#0a0a0f]/95 backdrop-blur-md"
+      >
+        <div className="flex flex-col gap-4 px-6 py-6">
+          {navItems.map(item => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-base font-medium text-slate-400 transition-colors hover:text-white border-b border-slate-800 pb-4 last:border-b-0"
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </motion.div>
     </motion.nav>
   );
 }
