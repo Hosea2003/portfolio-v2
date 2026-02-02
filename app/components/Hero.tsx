@@ -7,7 +7,8 @@ export default function Hero() {
     <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-6">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-slate-600/15 via-slate-500/10 to-slate-700/15 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-linear-to-br from-emerald-500/20 via-emerald-400/10 to-emerald-700/20 blur-3xl" />
+        <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(16,185,129,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.18)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(circle_at_center,black_0%,black_45%,transparent_70%)]" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center text-center">
@@ -18,8 +19,8 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-slate-400/30 bg-[var(--color-card-alt)] backdrop-blur-sm">
-            <span className="text-2xl font-bold text-slate-300">RH</span>
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-emerald-400/30 bg-[var(--color-card-alt)] backdrop-blur-sm">
+            <span className="text-2xl font-bold text-emerald-300">RH</span>
           </div>
         </motion.div>
 
@@ -28,7 +29,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-slate-400"
+          className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-emerald-300/80"
         >
           Full Stack Developer
         </motion.div>
@@ -67,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-12 text-sm font-medium uppercase tracking-[0.3em] text-slate-400"
+          className="mb-12 text-sm font-medium uppercase tracking-[0.3em] text-emerald-300/70"
         >
           React • Next.js • React Native
         </motion.div>
@@ -108,7 +109,7 @@ export default function Hero() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="inline-flex flex-col justify-center rounded-lg border border-[#2a2a2a] bg-(--color-card) px-8 py-6 backdrop-blur-sm min-w-70"
+                  className="inline-flex flex-col justify-center rounded-lg border border-emerald-500/20 bg-(--color-card) px-8 py-6 backdrop-blur-sm min-w-70"
                 >
                   <span className="text-base font-semibold text-white mb-1">
                     {service.title}
@@ -128,7 +129,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-slate-600/50 bg-linear-to-br from-slate-200 via-slate-100 to-slate-300 px-8 py-4 text-sm font-medium text-slate-900 shadow-lg shadow-slate-900/50 transition-all hover:border-slate-400 hover:shadow-xl hover:shadow-slate-700/50"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-emerald-600/50 bg-linear-to-br from-emerald-200 via-emerald-100 to-emerald-300 px-8 py-4 text-sm font-medium text-emerald-950 shadow-lg shadow-emerald-900/50 transition-all hover:border-emerald-400 hover:shadow-xl hover:shadow-emerald-700/50"
           >
             <span className="relative z-10 font-semibold">Hire me</span>
             <svg
@@ -144,7 +145,7 @@ export default function Hero() {
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-            <div className="absolute inset-0 -z-10 bg-linear-to-r from-slate-100 to-slate-200 opacity-0 transition-opacity group-hover:opacity-100" />
+            <div className="absolute inset-0 -z-10 bg-linear-to-r from-emerald-100 to-emerald-200 opacity-0 transition-opacity group-hover:opacity-100" />
           </a>
         </motion.div>
       </div>
