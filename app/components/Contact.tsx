@@ -15,6 +15,8 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -24,13 +26,33 @@ export default function Contact() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // Handle form submission here (e.g., send to API)
-    console.log(data);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setIsSubmitted(true);
       reset();
-    }, 3000);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (err) {
+      setError("Failed to send message. Please try again.");
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -242,28 +264,56 @@ export default function Contact() {
 
                 {/* Submit button */}
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   type="submit"
-                  className="group relative w-full overflow-hidden rounded-full bg-primary px-8 py-4 font-bold text-lg text-black shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:shadow-primary/40 flex items-center justify-center"
+                  disabled={isSubmitting}
+                  className="group relative w-full overflow-hidden rounded-full bg-primary px-8 py-4 font-bold text-lg text-black shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:shadow-primary/40 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10">
-                    {isSubmitted ? "Message Sent!" : "Send Message"}
+                    {isSubmitting
+                      ? "Sending..."
+                      : isSubmitted
+                        ? "Message Sent!"
+                        : "Send Message"}
                   </span>
                   <div className="absolute right-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black">
-                    <svg
-                      className="h-5 w-5 text-primary transition-transform group-hover:translate-x-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
+                    {isSubmitting ? (
+                      <svg
+                        className="h-5 w-5 text-primary animate-spin"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                    ) : (
+                      <svg
+                        className="h-5 w-5 text-primary transition-transform group-hover:translate-x-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    )}
                   </div>
                 </motion.button>
               </div>
@@ -273,9 +323,20 @@ export default function Contact() {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-4 rounded-lg bg-slate-700/30 p-4 text-center text-slate-300"
+                  className="mt-4 rounded-lg border border-primary/30 bg-primary/10 p-4 text-center text-primary"
                 >
                   Thank you! I&apos;ll get back to you soon.
+                </motion.div>
+              )}
+
+              {/* Error message */}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 rounded-lg border border-red-400/30 bg-red-400/10 p-4 text-center text-red-400"
+                >
+                  {error}
                 </motion.div>
               )}
             </form>
