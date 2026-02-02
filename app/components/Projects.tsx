@@ -11,68 +11,52 @@ interface Project {
   description: string;
   tags: string[];
   gradient: string;
+  url?: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "WeGroupAPI",
+    title: "WebapiGroup",
     category: "Monitoring Dashboard",
-    image: "/projects/wegroupapi.jpg",
+    image: "/images/wegroupapi.jpg",
     description:
-      "API monitoring dashboard with real-time analytics and performance tracking",
+      "Collaborated with WebApiGroup on their platform - API monitoring dashboard with real-time analytics and performance tracking",
     tags: ["Next.js", "ShadCn", "React Query", "NestJs", "TypeORM"],
     gradient: "from-slate-700/20 to-slate-500/20",
+    url: "https://webapi.group/",
   },
   {
     id: 2,
     title: "Rico",
     category: "Marketplace",
-    image: "/projects/rico.jpg",
+    image: "/images/rico.png",
     description:
       "Mobile application for finding and selling goods with intuitive user interface",
-    tags: ["React Native", "Mobile Development"],
+    tags: ["NextJs", "Firebase", "React Native"],
     gradient: "from-slate-500/20 to-slate-600/20",
   },
   {
     id: 3,
-    title: "EasyVecto",
-    category: "Design Tool",
-    image: "/projects/easyvecto.jpg",
+    title: "SingSong",
+    category: "Mobile Application",
+    image: "/images/singsong.png",
     description:
-      "Logo transformation application built with modern React stack",
-    tags: ["React", "Next.js", "NestJs"],
-    gradient: "from-slate-600/20 to-slate-700/20",
+      "Mobile app available on Playstore to find camp songs with admin panel for content management",
+    tags: ["Next.js"],
+    gradient: "from-slate-600/20 to-slate-500/20",
+    url: "https://singsong.mahefaniaina.com",
   },
   {
     id: 4,
-    title: "SingSong",
-    category: "Mobile Application",
-    image: "/projects/singsong.jpg",
-    description:
-      "Mobile app available on Playstore to find camp songs with admin panel for content management",
-    tags: ["React Native", "React", "Next.js"],
-    gradient: "from-slate-600/20 to-slate-500/20",
-  },
-  {
-    id: 5,
-    title: "Recover",
+    title: "Addiction Recovery",
     category: "Healthcare Platform",
-    image: "/projects/recover.jpg",
+    image: "/images/addiction-recovery.png",
     description:
       "Mobile and web platform connecting doctors specialized in addictions (drugs, alcohol, tobacco) with patients",
-    tags: ["React Native", "React", "Next.js"],
+    tags: ["Next.js"],
     gradient: "from-slate-500/20 to-slate-600/20",
-  },
-  {
-    id: 6,
-    title: "We Paint Well",
-    category: "Service Platform",
-    image: "/projects/wepaintwell.jpg",
-    description:
-      "Mobile and web application for painting services with booking system",
-    tags: ["React Native", "React", "Web & Mobile"],
-    gradient: "from-slate-600/20 to-slate-500/20",
+    url: "https://www.addictionrecovery.mg",
   },
 ];
 
@@ -120,25 +104,28 @@ export default function Projects() {
                 className="relative block w-full overflow-hidden rounded-2xl border border-primary/20 bg-[var(--color-card)] backdrop-blur-sm transition-all hover:border-primary/40"
               >
                 {/* Project card content */}
-                <div className="aspect-4/3 w-full overflow-hidden bg-linear-to-br from-[var(--color-card-alt)] to-[var(--color-card)]">
-                  {/* Placeholder gradient background */}
-                  <div
-                    className={`h-full w-full bg-linear-to-br ${project.gradient} opacity-40 transition-opacity group-hover:opacity-60`}
-                  />
-
-                  {/* Overlay content */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <motion.div
-                        initial={{ scale: 0.8, opacity: 0 }}
-                        whileInView={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
-                        className="mb-4 text-6xl font-bold text-white/10"
-                      >
-                        {String(project.id).padStart(2, "0")}
-                      </motion.div>
-                    </div>
-                  </div>
+                <div className="aspect-4/3 w-full overflow-hidden bg-[var(--color-card-alt)] relative">
+                  {project.url ? (
+                    // Website preview using iframe
+                    <>
+                      <iframe
+                        src={project.url}
+                        className="h-full w-full pointer-events-none scale-100 origin-top-left"
+                        title={project.title}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    </>
+                  ) : (
+                    // Project Image
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-110 bg-[var(--color-card-alt)]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-60 transition-opacity group-hover:opacity-80" />
+                    </>
+                  )}
                 </div>
 
                 {/* Card info */}
@@ -206,9 +193,21 @@ export default function Projects() {
               </svg>
             </button>
 
-            <div
-              className={`h-96 w-full bg-linear-to-br ${selectedProject.gradient}`}
-            />
+            <div className="h-96 w-full overflow-hidden bg-[var(--color-card-alt)]">
+              {selectedProject.url ? (
+                <iframe
+                  src={selectedProject.url}
+                  className="h-full w-full"
+                  title={selectedProject.title}
+                />
+              ) : (
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="h-full w-full object-contain bg-[var(--color-card-alt)]"
+                />
+              )}
+            </div>
 
             <div className="p-8">
               <h3 className="mb-2 text-3xl font-bold text-white">
@@ -218,7 +217,7 @@ export default function Projects() {
               <p className="mb-6 text-lg text-slate-300">
                 {selectedProject.description}
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="mb-6 flex flex-wrap gap-2">
                 {selectedProject.tags.map(tag => (
                   <span
                     key={tag}
@@ -228,6 +227,29 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+              {selectedProject.url && (
+                <a
+                  href={selectedProject.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-semibold text-black transition-all hover:bg-primary/90"
+                >
+                  Visit Website
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              )}
             </div>
           </motion.div>
         </motion.div>
