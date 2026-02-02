@@ -2,6 +2,11 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiNestjs } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
+import { RiSupabaseFill } from "react-icons/ri";
+import { IoLogoFirebase } from "react-icons/io5";
 
 interface Experience {
   id: number;
@@ -70,7 +75,7 @@ export default function Experience() {
           >
             Experience
           </h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-slate-100">
             My professional journey and expertise
           </p>
         </motion.div>
@@ -122,16 +127,16 @@ export default function Experience() {
                       </div>
                     )}
 
-                    <div className="mb-3 text-sm font-medium uppercase tracking-wider text-slate-400">
+                    <div className="mb-3 text-sm font-medium uppercase tracking-wider text-slate-50">
                       {exp.year}
                     </div>
                     <h3 className="mb-2 text-2xl font-bold text-white">
                       {exp.role}
                     </h3>
-                    <div className="mb-4 text-lg font-medium text-slate-300">
+                    <div className="mb-4 text-lg font-medium text-slate-50">
                       {exp.company}
                     </div>
-                    <p className="text-slate-400">{exp.description}</p>
+                    <p className="text-slate-100">{exp.description}</p>
                   </div>
                 </div>
 
@@ -141,6 +146,71 @@ export default function Experience() {
             ))}
           </div>
         </div>
+
+        {/* Skills section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-24"
+        >
+          <h3 className="mb-12 text-center text-2xl font-bold text-white md:text-3xl">
+            Core Skills
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+            {[
+              {
+                name: "Next.js",
+                icon: <RiNextjsFill className="h-16 w-16" />,
+              },
+              {
+                name: "NestJS",
+                icon: <SiNestjs className="h-16 w-16" />,
+              },
+              {
+                name: "React Native",
+                icon: <TbBrandReactNative className="h-16 w-16" />,
+              },
+              {
+                name: "Supabase",
+                icon: <RiSupabaseFill className="h-16 w-16" />,
+              },
+              {
+                name: "Firebase",
+                icon: <IoLogoFirebase className="h-16 w-16" />,
+              },
+            ].map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 20, rotate: -10 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, y: 0, rotate: 0 }
+                    : { opacity: 0, y: 20, rotate: -10 }
+                }
+                transition={{
+                  duration: 0.5,
+                  delay: 0.9 + index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  rotate: 5,
+                  transition: { duration: 0.2 },
+                }}
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="text-primary transition-all duration-300 group-hover:text-primary/80">
+                  {skill.icon}
+                </div>
+                <span className="text-sm font-medium text-slate-400 transition-colors group-hover:text-primary">
+                  {skill.name}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

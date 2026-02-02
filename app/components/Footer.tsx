@@ -6,15 +6,15 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full border-t border-slate-800 bg-[#0a0a0f] px-6 py-12 md:px-12">
+    <footer className="relative w-full border-t border-primary bg-[#0a0a0f] px-6 py-12 md:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-slate-700 bg-slate-800/50">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-primary/80 bg-slate-800/50">
               <span className="text-lg font-bold text-slate-300">RH</span>
             </div>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-slate-200">
               Full Stack Developer specializing in React, Next.js, and React
               Native applications.
             </p>
@@ -22,7 +22,7 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-slate-500">
+            <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-primary/80">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-slate-500">
+            <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-primary/80">
               Connect
             </h3>
             <div className="flex gap-4">
@@ -58,8 +58,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-slate-800 pt-8 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="mt-12 border-t border-white pt-8 text-center">
+          <p className="text-sm text-slate-50">
             © {currentYear} All rights reserved.
           </p>
         </div>

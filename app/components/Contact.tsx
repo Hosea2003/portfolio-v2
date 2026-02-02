@@ -77,7 +77,7 @@ export default function Contact() {
               <br />
               Together
             </h2>
-            <p className="mb-8 text-lg text-slate-400">
+            <p className="mb-8 text-lg text-slate-100">
               I&apos;m currently available for new projects. Whether you have a
               question or just want to say hi, I&apos;ll try my best to get back
               to you!
@@ -107,31 +107,31 @@ export default function Contact() {
               className="space-y-6"
             >
               <div>
-                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-slate-500">
+                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
                   Email
                 </h3>
                 <a
                   href="mailto:mahefaniairindra@gmail.com"
-                  className="text-xl text-white transition-colors hover:text-slate-300"
+                  className="text-xl text-white transition-colors hover:text-slate-50"
                 >
                   mahefaniairindra@gmail.com
                 </a>
               </div>
 
               <div>
-                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-slate-500">
+                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
                   Phone
                 </h3>
                 <a
                   href="tel:+26838062851"
-                  className="text-xl text-white transition-colors hover:text-slate-300"
+                  className="text-xl text-white transition-colors hover:text-slate-50"
                 >
                   +268 38 06 285 61
                 </a>
               </div>
 
               <div>
-                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-slate-500">
+                <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
                   Social
                 </h3>
                 <div className="flex gap-4">
@@ -143,7 +143,7 @@ export default function Contact() {
                     <a
                       key={social.name}
                       href={social.url}
-                      className="text-slate-400 transition-colors hover:text-white"
+                      className="text-slate-50 transition-colors hover:text-white"
                     >
                       {social.name}
                     </a>
@@ -168,7 +168,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-semibold text-white"
                   >
                     Name
                   </label>
@@ -176,7 +176,7 @@ export default function Contact() {
                     {...register("name", { required: "Name is required" })}
                     type="text"
                     id="name"
-                    className="w-full rounded-lg border border-[#2a2a2a] bg-(--color-card-alt) px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-(--color-card-alt) px-4 py-3 text-white placeholder-gray-300 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Your name"
                   />
                   {errors.name && (
@@ -190,7 +190,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-semibold text-white"
                   >
                     Email
                   </label>
@@ -204,7 +204,7 @@ export default function Contact() {
                     })}
                     type="email"
                     id="email"
-                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-gray-300 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="your@email.com"
                   />
                   {errors.email && (
@@ -218,7 +218,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-semibold text-white"
                   >
                     Subject
                   </label>
@@ -228,7 +228,7 @@ export default function Contact() {
                     })}
                     type="text"
                     id="subject"
-                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-gray-300 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Project inquiry"
                   />
                   {errors.subject && (
@@ -242,7 +242,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="mb-2 block text-sm font-medium text-slate-300"
+                    className="mb-2 block text-sm font-semibold text-white"
                   >
                     Message
                   </label>
@@ -252,7 +252,7 @@ export default function Contact() {
                     })}
                     id="message"
                     rows={6}
-                    className="w-full resize-none rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-slate-500 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
+                    className="w-full resize-none rounded-lg border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-white placeholder-gray-300 outline-none transition-colors focus:border-slate-400 focus:ring-2 focus:ring-slate-400/20"
                     placeholder="Tell me about your project..."
                   />
                   {errors.message && (

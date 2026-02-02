@@ -114,7 +114,7 @@ export default function Hero() {
                   <span className="text-sm font-semibold text-white mb-1 sm:text-base">
                     {service.title}
                   </span>
-                  <span className="text-xs text-slate-400 sm:text-sm">
+                  <span className="text-xs text-primary/80 sm:text-sm">
                     {service.tech}
                   </span>
                 </div>
@@ -131,9 +131,11 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-primary/50 bg-primary/90 px-8 py-4 text-sm font-medium text-black shadow-lg shadow-primary/30 transition-all hover:border-primary hover:bg-primary hover:shadow-xl hover:shadow-primary/40"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-primary/50 bg-primary/30 px-8 py-4 text-sm font-medium text-black shadow-lg shadow-primary/30 transition-all hover:bg-primary/35 hover:shadow-xl hover:shadow-primary/40"
           >
-            <span className="relative z-10 font-semibold">Hire me</span>
+            <span className="relative z-10 font-semibold text-slate-200">
+              Hire me
+            </span>
             <svg
               className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1"
               fill="none"
