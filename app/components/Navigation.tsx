@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navigation() {
+  const t = useTranslations("nav");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -17,9 +20,9 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: "Work", href: "#work" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
+    { name: t("work"), href: "#work" },
+    { name: t("experience"), href: "#experience" },
+    { name: t("contact"), href: "#contact" },
   ];
 
   return (
@@ -49,7 +52,8 @@ export default function Navigation() {
             >
               {item.name}
             </a>
-          ))}
+          ))}{" "}
+          <LanguageSwitcher />{" "}
         </div>
 
         {/* Mobile menu button */}
@@ -104,7 +108,10 @@ export default function Navigation() {
             >
               {item.name}
             </a>
-          ))}
+          ))}{" "}
+          <div className="pt-2">
+            <LanguageSwitcher />
+          </div>{" "}
         </div>
       </motion.div>
     </motion.nav>

@@ -2,6 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 interface Project {
   id: number;
@@ -14,53 +15,8 @@ interface Project {
   url?: string;
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "WebapiGroup",
-    category: "Monitoring Dashboard",
-    image: "/images/wegroupapi.jpg",
-    description:
-      "Collaborated with WebApiGroup on their platform - API monitoring dashboard with real-time analytics and performance tracking",
-    tags: ["Next.js", "ShadCn", "React Query", "NestJs", "TypeORM"],
-    gradient: "from-slate-700/20 to-slate-500/20",
-    url: "https://webapi.group/",
-  },
-  {
-    id: 2,
-    title: "Rico",
-    category: "Marketplace",
-    image: "/images/rico.png",
-    description:
-      "Mobile application for finding and selling goods with intuitive user interface",
-    tags: ["NextJs", "Firebase", "React Native"],
-    gradient: "from-slate-500/20 to-slate-600/20",
-  },
-  {
-    id: 3,
-    title: "SingSong",
-    category: "Mobile Application",
-    image: "/images/singsong.png",
-    description:
-      "Mobile app available on Playstore to find camp songs with admin panel for content management",
-    tags: ["Next.js"],
-    gradient: "from-slate-600/20 to-slate-500/20",
-    url: "https://singsong.mahefaniaina.com",
-  },
-  {
-    id: 4,
-    title: "Addiction Recovery",
-    category: "Healthcare Platform",
-    image: "/images/addiction-recovery.png",
-    description:
-      "Mobile and web platform connecting doctors specialized in addictions (drugs, alcohol, tobacco) with patients",
-    tags: ["Next.js"],
-    gradient: "from-slate-500/20 to-slate-600/20",
-    url: "https://www.addictionrecovery.mg",
-  },
-];
-
 export default function Projects() {
+  const t = useTranslations("projects");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -71,6 +27,48 @@ export default function Projects() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
+  const projects: Project[] = [
+    {
+      id: 1,
+      title: "WebapiGroup",
+      category: t("items.webapigroup.category"),
+      image: "/images/wegroupapi.jpg",
+      description: t("items.webapigroup.description"),
+      tags: ["Next.js", "ShadCn", "React Query", "NestJs", "TypeORM"],
+      gradient: "from-slate-700/20 to-slate-500/20",
+      url: "https://webapi.group/",
+    },
+    {
+      id: 2,
+      title: "Rico",
+      category: t("items.rico.category"),
+      image: "/images/rico.png",
+      description: t("items.rico.description"),
+      tags: ["NextJs", "Firebase", "React Native"],
+      gradient: "from-slate-500/20 to-slate-600/20",
+    },
+    {
+      id: 3,
+      title: "SingSong",
+      category: t("items.singsong.category"),
+      image: "/images/singsong.png",
+      description: t("items.singsong.description"),
+      tags: ["Next.js"],
+      gradient: "from-slate-600/20 to-slate-500/20",
+      url: "https://singsong.mahefaniaina.com",
+    },
+    {
+      id: 4,
+      title: "Addiction Recovery",
+      category: t("items.addictionRecovery.category"),
+      image: "/images/addiction-recovery.png",
+      description: t("items.addictionRecovery.description"),
+      tags: ["Next.js"],
+      gradient: "from-slate-500/20 to-slate-600/20",
+      url: "https://www.addictionrecovery.mg",
+    },
+  ];
 
   return (
     <section
@@ -89,11 +87,9 @@ export default function Projects() {
             className="mb-4 text-5xl font-bold tracking-tight text-white md:text-7xl"
             style={{ fontFamily: "var(--font-bricolage)" }}
           >
-            Selected Work
+            {t("title")}
           </h2>
-          <p className="text-lg text-slate-400">
-            A collection of projects I&apos;ve worked on
-          </p>
+          <p className="text-lg text-slate-400">{t("subtitle")}</p>
         </motion.div>
 
         {/* Projects grid */}
@@ -155,7 +151,9 @@ export default function Projects() {
                     whileHover={{ scale: 1 }}
                     className="text-white"
                   >
-                    <span className="text-sm font-medium">View Project</span>
+                    <span className="text-sm font-medium">
+                      {t("viewProject")}
+                    </span>
                   </motion.div>
                 </div>
               </button>

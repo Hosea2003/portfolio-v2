@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -14,25 +17,22 @@ export default function Footer() {
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-primary/80 bg-slate-800/50">
               <span className="text-lg font-bold text-slate-300">RH</span>
             </div>
-            <p className="text-sm text-slate-200">
-              Full Stack Developer specializing in React, Next.js, and React
-              Native applications.
-            </p>
+            <p className="text-sm text-slate-200">{t("description")}</p>
           </div>
 
           {/* Quick links */}
           <div>
             <h3 className="mb-4 text-sm font-medium uppercase tracking-wider text-primary/80">
-              Quick Links
+              {t("quickLinks")}
             </h3>
             <ul className="space-y-2">
-              {["Work", "Experience", "Contact"].map(link => (
+              {["work", "experience", "contact"].map(link => (
                 <li key={link}>
                   <a
-                    href={`#${link.toLowerCase()}`}
-                    className="text-sm text-slate-400 transition-colors hover:text-white"
+                    href={`#${link}`}
+                    className="text-sm text-slate-400 transition-colors hover:text-primary"
                   >
-                    {link}
+                    {tNav(link)}
                   </a>
                 </li>
               ))}
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="mt-12 border-t border-white pt-8 text-center">
           <p className="text-sm text-slate-50">
-            © {currentYear} All rights reserved.
+            © {currentYear} {t("allRightsReserved")}.
           </p>
         </div>
       </div>

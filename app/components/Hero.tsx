@@ -2,8 +2,10 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("hero");
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -47,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-primary/80"
         >
-          Full Stack Developer
+          {t("role")}
         </motion.div>
 
         {/* Main name with stagger animation */}
@@ -86,7 +88,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-12 text-sm font-medium uppercase tracking-[0.3em] text-primary/70"
         >
-          React • Next.js • React Native
+          {t("subtitle")}
         </motion.div>
 
         {/* Services Carousel */}
@@ -112,16 +114,34 @@ export default function Hero() {
               className="flex gap-4 whitespace-nowrap"
             >
               {[
-                { title: "Backend Development", tech: "NestJS • Django" },
-                { title: "Frontend Development", tech: "React • Next.js" },
-                { title: "Mobile Development", tech: "React Native" },
-                { title: "API Design", tech: "REST • GraphQL" },
-                { title: "Full Stack Solutions", tech: "End-to-End" },
-                { title: "Backend Development", tech: "NestJS • Django" },
-                { title: "Frontend Development", tech: "React • Next.js" },
-                { title: "Mobile Development", tech: "React Native" },
-                { title: "API Design", tech: "REST • GraphQL" },
-                { title: "Full Stack Solutions", tech: "End-to-End" },
+                {
+                  title: t("services.backend"),
+                  tech: t("services.backendTech"),
+                },
+                {
+                  title: t("services.frontend"),
+                  tech: t("services.frontendTech"),
+                },
+                { title: t("services.mobile"), tech: t("services.mobileTech") },
+                { title: t("services.api"), tech: t("services.apiTech") },
+                {
+                  title: t("services.fullstack"),
+                  tech: t("services.fullstackTech"),
+                },
+                {
+                  title: t("services.backend"),
+                  tech: t("services.backendTech"),
+                },
+                {
+                  title: t("services.frontend"),
+                  tech: t("services.frontendTech"),
+                },
+                { title: t("services.mobile"), tech: t("services.mobileTech") },
+                { title: t("services.api"), tech: t("services.apiTech") },
+                {
+                  title: t("services.fullstack"),
+                  tech: t("services.fullstackTech"),
+                },
               ].map((service, index) => (
                 <div
                   key={index}
@@ -150,7 +170,7 @@ export default function Hero() {
             className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border-2 border-primary/50 bg-primary/30 px-8 py-4 text-sm font-medium text-black shadow-lg shadow-primary/30 transition-all hover:bg-primary/35 hover:shadow-xl hover:shadow-primary/40"
           >
             <span className="relative z-10 font-semibold text-slate-200">
-              Hire me
+              {t("cta")}
             </span>
             <svg
               className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1"

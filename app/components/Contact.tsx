@@ -3,6 +3,7 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 
 interface FormData {
   name: string;
@@ -12,6 +13,7 @@ interface FormData {
 }
 
 export default function Contact() {
+  const t = useTranslations("contact");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -55,7 +57,7 @@ export default function Contact() {
         setIsSubmitted(false);
       }, 5000);
     } catch (err) {
-      setError("Failed to send message. Please try again.");
+      setError(t("form.error"));
       console.error(err);
     } finally {
       setIsSubmitting(false);
@@ -80,15 +82,9 @@ export default function Contact() {
               className="mb-6 text-5xl font-bold tracking-tight text-white md:text-7xl"
               style={{ fontFamily: "var(--font-bricolage)" }}
             >
-              Let&apos;s Work
-              <br />
-              Together
+              {t("title")}
             </h2>
-            <p className="mb-8 text-lg text-slate-100">
-              I&apos;m currently available for new projects. Whether you have a
-              question or just want to say hi, I&apos;ll try my best to get back
-              to you!
-            </p>
+            <p className="mb-8 text-lg text-slate-100">{t("subtitle")}</p>
 
             {/* Availability badge */}
             <motion.div
@@ -115,7 +111,7 @@ export default function Contact() {
             >
               <div>
                 <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
-                  Email
+                  {t("email")}
                 </h3>
                 <a
                   href="mailto:mahefaniairindra@gmail.com"
@@ -127,7 +123,7 @@ export default function Contact() {
 
               <div>
                 <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
-                  Phone
+                  {t("phone")}
                 </h3>
                 <a
                   href="tel:+26838062851"
@@ -139,7 +135,7 @@ export default function Contact() {
 
               <div>
                 <h3 className="mb-2 text-sm font-medium uppercase tracking-wider text-primary/80">
-                  Social
+                  {t("social")}
                 </h3>
                 <div className="flex gap-4">
                   {[
@@ -177,7 +173,7 @@ export default function Contact() {
                     htmlFor="name"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Name
+                    {t("form.name")}
                   </label>
                   <input
                     {...register("name", { required: "Name is required" })}
@@ -199,7 +195,7 @@ export default function Contact() {
                     htmlFor="email"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Email
+                    {t("form.email")}
                   </label>
                   <input
                     {...register("email", {
@@ -227,7 +223,7 @@ export default function Contact() {
                     htmlFor="subject"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Subject
+                    {t("form.subject")}
                   </label>
                   <input
                     {...register("subject", {
@@ -251,7 +247,7 @@ export default function Contact() {
                     htmlFor="message"
                     className="mb-2 block text-sm font-semibold text-white"
                   >
-                    Message
+                    {t("form.message")}
                   </label>
                   <textarea
                     {...register("message", {
@@ -279,10 +275,10 @@ export default function Contact() {
                 >
                   <span className="relative z-10">
                     {isSubmitting
-                      ? "Sending..."
+                      ? t("form.sending")
                       : isSubmitted
-                        ? "Message Sent!"
-                        : "Send Message"}
+                        ? t("form.success")
+                        : t("form.send")}
                   </span>
                   <div className="absolute right-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black">
                     {isSubmitting ? (

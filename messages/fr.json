@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "work": "Travaux",
+    "experience": "Expérience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "role": "Développeur Full Stack",
+    "name": "RINDRA HOSEA",
+    "subtitle": "React • Next.js • React Native",
+    "cta": "Engagez-moi",
+    "services": {
+      "backend": "Développement Backend",
+      "backendTech": "NestJS • Django",
+      "frontend": "Développement Frontend",
+      "frontendTech": "React • Next.js",
+      "mobile": "Développement Mobile",
+      "mobileTech": "React Native",
+      "api": "Conception d'API",
+      "apiTech": "REST • GraphQL",
+      "fullstack": "Solutions Full Stack",
+      "fullstackTech": "Bout en bout"
+    }
+  },
+  "projects": {
+    "title": "Travaux Sélectionnés",
+    "subtitle": "Une collection de projets sur lesquels j'ai travaillé",
+    "viewProject": "Voir le Projet",
+    "close": "Fermer",
+    "items": {
+      "webapigroup": {
+        "category": "Tableau de Bord de Surveillance",
+        "description": "Collaboration avec WebApiGroup sur leur plateforme - tableau de bord de surveillance d'API avec analyses en temps réel et suivi des performances"
+      },
+      "rico": {
+        "category": "Place de Marché",
+        "description": "Application mobile pour trouver et vendre des biens avec une interface utilisateur intuitive"
+      },
+      "singsong": {
+        "category": "Application Mobile",
+        "description": "Application mobile disponible sur Playstore pour trouver des chants de camp avec panneau d'administration pour la gestion de contenu"
+      },
+      "addictionRecovery": {
+        "category": "Plateforme de Santé",
+        "description": "Plateforme mobile et web connectant des médecins spécialisés dans les addictions (drogues, alcool, tabac) avec des patients"
+      }
+    }
+  },
+  "skills": {
+    "title": "Compétences Clés"
+  },
+  "experience": {
+    "title": "Expérience",
+    "subtitle": "Mon parcours professionnel",
+    "items": {
+      "freelance2024": {
+        "year": "Août 2024 - Présent",
+        "role": "Développeur Full Stack Freelance",
+        "company": "Indépendant",
+        "description": "Développement de nouvelles fonctionnalités pour applications mobiles et web avec React Native et Next.js. Création de Rico (application marketplace), WeGroupAPI (tableau de bord de surveillance), EasyVecto (application de transformation de logo) et We Paint Well (plateforme de services de peinture).",
+        "type": "freelance"
+      },
+      "praktek": {
+        "year": "Fév 2024 - Août 2024",
+        "role": "Développeur Full Stack",
+        "company": "Praktek",
+        "description": "Développement d'applications web et mobiles utilisant l'écosystème React. Focus sur l'écriture de tests unitaires et l'assurance qualité du code dans tous les projets.",
+        "type": "employment"
+      },
+      "futurmap": {
+        "year": "Sep 2023 - Déc 2023",
+        "role": "Stagiaire Développeur",
+        "company": "Futurmap",
+        "description": "Intégration de fonctionnalités de gestion de projet dans le système ERP de l'entreprise utilisant Django et Angular. Expérience acquise dans le développement de logiciels d'entreprise.",
+        "type": "employment"
+      }
+    }
+  },
+  "contact": {
+    "title": "Travaillons Ensemble",
+    "subtitle": "Vous avez un projet en tête ? Créons quelque chose d'incroyable ensemble.",
+    "email": "Email",
+    "phone": "Téléphone",
+    "social": "Réseaux Sociaux",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer le Message",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès !",
+      "error": "Échec de l'envoi du message. Veuillez réessayer."
+    }
+  },
+  "footer": {
+    "description": "Développeur Full Stack spécialisé dans les applications web et mobiles modernes",
+    "quickLinks": "Liens Rapides",
+    "allRightsReserved": "Tous droits réservés"
+  }
+}

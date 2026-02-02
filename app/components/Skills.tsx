@@ -2,6 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiNestjs } from "react-icons/si";
 import { TbBrandReactNative } from "react-icons/tb";
@@ -9,6 +10,7 @@ import { RiSupabaseFill } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
 
 export default function Skills() {
+  const t = useTranslations("skills");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -34,7 +36,7 @@ export default function Skills() {
             className="mb-12 text-center text-5xl font-bold tracking-tight text-white md:text-7xl"
             style={{ fontFamily: "var(--font-bricolage)" }}
           >
-            Core Skills
+            {t("title")}
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
             {[

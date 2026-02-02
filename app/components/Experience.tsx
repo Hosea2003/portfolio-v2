@@ -2,11 +2,7 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { RiNextjsFill } from "react-icons/ri";
-import { SiNestjs } from "react-icons/si";
-import { TbBrandReactNative } from "react-icons/tb";
-import { RiSupabaseFill } from "react-icons/ri";
-import { IoLogoFirebase } from "react-icons/io5";
+import { useTranslations } from "next-intl";
 
 interface Experience {
   id: number;
@@ -17,37 +13,8 @@ interface Experience {
   type: "freelance" | "employment";
 }
 
-const experiences: Experience[] = [
-  {
-    id: 1,
-    year: "Aug 2024 - Present",
-    role: "Freelance Full Stack Developer",
-    company: "Independent",
-    description:
-      "Development of new features for mobile and web applications with React Native and Next.js. Created Rico (marketplace app), WeGroupAPI (monitoring dashboard), EasyVecto (logo transformation app), and We Paint Well (painting services platform).",
-    type: "freelance",
-  },
-  {
-    id: 2,
-    year: "Feb 2024 - Aug 2024",
-    role: "Full Stack Developer",
-    company: "Praktek",
-    description:
-      "Development of web and mobile applications using React ecosystem. Focused on writing unit tests and ensuring code quality across projects.",
-    type: "employment",
-  },
-  {
-    id: 3,
-    year: "Sep 2023 - Dec 2023",
-    role: "Developer Intern",
-    company: "Futurmap",
-    description:
-      "Integrated project management functionalities in the company's ERP system using Django and Angular. Gained experience in enterprise software development.",
-    type: "employment",
-  },
-];
-
 export default function Experience() {
+  const t = useTranslations("experience");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { scrollYProgress } = useScroll({
@@ -55,6 +22,33 @@ export default function Experience() {
     offset: ["start end", "end start"],
   });
   const lineHeight = useTransform(scrollYProgress, [0, 0.7], ["0%", "100%"]);
+
+  const experiences: Experience[] = [
+    {
+      id: 1,
+      year: t("items.freelance2024.year"),
+      role: t("items.freelance2024.role"),
+      company: t("items.freelance2024.company"),
+      description: t("items.freelance2024.description"),
+      type: "freelance",
+    },
+    {
+      id: 2,
+      year: t("items.praktek.year"),
+      role: t("items.praktek.role"),
+      company: t("items.praktek.company"),
+      description: t("items.praktek.description"),
+      type: "employment",
+    },
+    {
+      id: 3,
+      year: t("items.futurmap.year"),
+      role: t("items.futurmap.role"),
+      company: t("items.futurmap.company"),
+      description: t("items.futurmap.description"),
+      type: "employment",
+    },
+  ];
 
   return (
     <section
@@ -73,11 +67,9 @@ export default function Experience() {
             className="mb-4 text-5xl font-bold tracking-tight text-white md:text-7xl"
             style={{ fontFamily: "var(--font-bricolage)" }}
           >
-            Experience
+            {t("title")}
           </h2>
-          <p className="text-lg text-slate-100">
-            My professional journey and expertise
-          </p>
+          <p className="text-lg text-slate-100">{t("subtitle")}</p>
         </motion.div>
 
         {/* Timeline */}
