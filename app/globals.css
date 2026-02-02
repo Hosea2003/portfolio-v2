@@ -3,8 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-card: #191919;
-  --color-card-alt: #141313;
+  --color-card: #0b0b0d;
+  --color-card-alt: #1b1b1c;
 }
 
 @theme inline {

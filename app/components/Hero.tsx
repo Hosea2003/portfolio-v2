@@ -108,7 +108,7 @@ export default function Hero() {
               ].map((service, index) => (
                 <div
                   key={index}
-                  className="inline-flex flex-col justify-center rounded-lg border border-[#2a2a2a] bg-[var(--color-card)] px-8 py-6 backdrop-blur-sm min-w-[280px]"
+                  className="inline-flex flex-col justify-center rounded-lg border border-[#2a2a2a] bg-(--color-card) px-8 py-6 backdrop-blur-sm min-w-70"
                 >
                   <span className="text-base font-semibold text-white mb-1">
                     {service.title}
