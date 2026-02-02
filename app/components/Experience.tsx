@@ -141,48 +141,6 @@ export default function Experience() {
             ))}
           </div>
         </div>
-
-        {/* Skills section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-24 rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)]/60 p-8 backdrop-blur-sm md:p-12"
-        >
-          <h3 className="mb-8 text-2xl font-bold text-white md:text-3xl">
-            Core Skills
-          </h3>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
-            {[
-              "React & Next.js",
-              "React Native",
-              "Node.js & NestJs",
-              "TypeScript",
-              "TypeORM",
-              "React Query",
-              "Git/GitHub",
-              "Firebase & Supabase",
-              "Docker",
-              "Django & Angular",
-              "ShadCn UI",
-              "Mobile Development",
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0.9 }
-                }
-                transition={{ duration: 0.4, delay: 0.9 + index * 0.1 }}
-                className="rounded-xl border border-[#2a2a2a] bg-[var(--color-card-alt)] px-4 py-3 text-center text-sm font-medium text-slate-300 transition-colors hover:border-slate-500/50 hover:text-white"
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
