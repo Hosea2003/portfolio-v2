@@ -66,13 +66,13 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-12 inline-flex items-center gap-3 rounded-2xl border-2 border-slate-500/40 bg-linear-to-r from-slate-800/80 to-slate-700/80 px-6 py-4 shadow-lg shadow-slate-900/50 backdrop-blur-sm"
+              className="mb-12 inline-flex items-center gap-3 rounded-2xl border-2 border-primary/40 bg-primary/10 px-6 py-4 shadow-lg shadow-primary/20 backdrop-blur-sm"
             >
               <div className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-300 opacity-75"></span>
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-slate-200"></span>
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-primary"></span>
               </div>
-              <span className="font-medium text-slate-200">
+              <span className="font-medium text-primary">
                 Open to Collaborations
               </span>
             </motion.div>
@@ -245,12 +245,26 @@ export default function Contact() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="group relative w-full overflow-hidden rounded-lg bg-linear-to-br from-slate-200 via-slate-100 to-slate-300 px-8 py-4 font-semibold text-slate-900 shadow-lg shadow-slate-900/50 transition-all hover:shadow-xl hover:shadow-slate-700/50"
+                  className="group relative w-full overflow-hidden rounded-full bg-primary px-8 py-4 font-bold text-lg text-black shadow-lg shadow-primary/30 transition-all hover:shadow-xl hover:shadow-primary/40 flex items-center justify-center"
                 >
                   <span className="relative z-10">
                     {isSubmitted ? "Message Sent!" : "Send Message"}
                   </span>
-                  <div className="absolute inset-0 -z-10 bg-linear-to-br from-slate-100 via-white to-slate-200 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute right-3 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-black">
+                    <svg
+                      className="h-5 w-5 text-primary transition-transform group-hover:translate-x-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </div>
                 </motion.button>
               </div>
 

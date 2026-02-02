@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 interface Experience {
@@ -45,6 +45,11 @@ const experiences: Experience[] = [
 export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 0.7], ["0%", "100%"]);
 
   return (
     <section
@@ -72,8 +77,13 @@ export default function Experience() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 top-0 hidden h-full w-px bg-linear-to-b from-slate-500/50 via-slate-400/50 to-transparent md:block md:left-1/2" />
+          {/* Animated Timeline Line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-[2px] bg-primary/10 hidden md:block -translate-x-1/2">
+            <motion.div
+              style={{ height: lineHeight }}
+              className="w-full bg-primary shadow-[0_0_10px_var(--color-primary)]"
+            />
+          </div>
 
           <div className="space-y-12 md:space-y-24">
             {experiences.map((exp, index) => (
@@ -91,8 +101,8 @@ export default function Experience() {
                 } items-start gap-8`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-slate-400 bg-[#0a0a0f] md:block md:left-1/2">
-                  <div className="absolute inset-0 animate-ping rounded-full bg-slate-400 opacity-20" />
+                <div className="absolute left-0 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-primary bg-[#0a0a0f] md:block md:left-1/2">
+                  <div className="absolute inset-0 animate-ping rounded-full bg-primary opacity-20" />
                 </div>
 
                 {/* Content */}
@@ -101,15 +111,12 @@ export default function Experience() {
                     index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
                   }`}
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="group relative overflow-hidden rounded-2xl border border-[#2a2a2a] bg-[var(--color-card)] p-6 backdrop-blur-sm transition-all hover:border-slate-700 md:p-8"
-                  >
+                  <div className="group">
                     {/* Freelance badge */}
                     {exp.type === "freelance" && (
-                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-slate-500/40 bg-linear-to-r from-slate-800/80 to-slate-700/80 px-3 py-1 shadow-lg shadow-slate-900/50">
-                        <div className="h-2 w-2 animate-pulse rounded-full bg-slate-200" />
-                        <span className="text-xs font-medium uppercase tracking-wider text-slate-200">
+                      <div className="mb-4 inline-flex items-center gap-2 rounded-full border-2 border-primary/40 bg-primary/10 px-3 py-1 shadow-lg shadow-primary/20">
+                        <div className="h-2 w-2 animate-pulse rounded-full bg-primary" />
+                        <span className="text-xs font-medium uppercase tracking-wider text-primary">
                           Currently Freelancing
                         </span>
                       </div>
@@ -125,10 +132,7 @@ export default function Experience() {
                       {exp.company}
                     </div>
                     <p className="text-slate-400">{exp.description}</p>
-
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 -z-10 bg-linear-to-br from-slate-600/10 to-slate-500/10 opacity-0 transition-opacity group-hover:opacity-100" />
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Spacer for alternating layout */}
