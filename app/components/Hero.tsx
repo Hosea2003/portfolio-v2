@@ -1,17 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+
   return (
-    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-4 sm:px-6 md:px-8">
+    <section
+      ref={ref}
+      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0a0a0f] px-4 sm:px-6 md:px-8"
+    >
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      <motion.div style={{ y }} className="absolute inset-0 overflow-hidden">
         <div className="absolute left-1/2 top-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(204,251,6,0.2)_0%,_rgba(204,251,6,0.1)_50%,_rgba(204,251,6,0.2)_100%)] blur-3xl" />
         <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(to_right,rgba(204,251,6,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(204,251,6,0.18)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(circle_at_center,black_0%,black_45%,transparent_70%)]" />
-      </div>
+      </motion.div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center w-full max-w-7xl px-2 sm:px-4">
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 flex flex-col items-center justify-center text-center w-full max-w-7xl px-2 sm:px-4"
+      >
         {/* Logo or initial - animated */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -152,7 +168,7 @@ export default function Hero() {
             <div className="absolute inset-0 -z-10 bg-primary/80 opacity-0 transition-opacity group-hover:opacity-100" />
           </a>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

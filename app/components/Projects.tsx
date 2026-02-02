@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
 interface Project {
@@ -65,12 +65,19 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
+
   return (
     <section
       ref={ref}
       className="relative w-full bg-[#08080c] px-6 py-32 md:px-12 lg:px-24"
     >
-      <div className="mx-auto max-w-7xl">
+      <motion.div style={{ y }} className="mx-auto max-w-7xl">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -155,7 +162,7 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Project modal */}
       {selectedProject && (

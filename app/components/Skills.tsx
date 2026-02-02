@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { RiNextjsFill } from "react-icons/ri";
 import { SiNestjs } from "react-icons/si";
@@ -12,12 +12,19 @@ export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+
   return (
     <section
       ref={ref}
       className="relative w-full bg-[#0a0a0f] px-6 py-32 md:px-12 lg:px-24"
     >
-      <div className="mx-auto max-w-7xl">
+      <motion.div style={{ y }} className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -83,7 +90,7 @@ export default function Skills() {
             ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

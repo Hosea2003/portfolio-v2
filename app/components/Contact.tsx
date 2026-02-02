@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -17,6 +17,13 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
 
   const {
     register,
@@ -61,7 +68,7 @@ export default function Contact() {
       ref={ref}
       className="relative w-full bg-[#08080c] px-6 py-32 md:px-12 lg:px-24"
     >
-      <div className="mx-auto max-w-7xl">
+      <motion.div style={{ y }} className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24">
           {/* Left column - Info */}
           <motion.div
@@ -342,7 +349,7 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
