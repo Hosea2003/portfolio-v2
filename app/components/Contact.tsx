@@ -103,7 +103,7 @@ export default function Contact() {
             </motion.div>
 
             {/* Contact info */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -153,7 +153,7 @@ export default function Contact() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right column - Form */}
